@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Android Material Example</string>
     <string name="home">Home</string>
+    <string name="wait">Wait…</string>
 </resources>
