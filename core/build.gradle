@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+def daggerVersion = '1.2.0'
+
+dependencies {
+    apt "com.squareup.dagger:dagger-compiler:$daggerVersion"
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.squareup.dagger:dagger:$daggerVersion"
+}
+
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0].processResources.manifestFile
+    }
+}
