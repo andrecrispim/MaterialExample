@@ -2,7 +2,6 @@ package br.com.android.material.app.modules;
 
 import android.support.annotation.NonNull;
 
-import br.com.android.material.app.DefaultApplication;
 import br.com.android.material.core.modules.CoreModule;
 import dagger.Module;
 
@@ -11,7 +10,7 @@ import dagger.Module;
  *
  * @author andre.moreira
  */
-@Module(injects = {DefaultApplication.class}, includes = {CoreModule.class})
+@Module(includes = {CoreModule.class})
 public class AppModule {
 
     @NonNull

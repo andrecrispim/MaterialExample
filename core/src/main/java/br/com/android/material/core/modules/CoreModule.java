@@ -7,6 +7,6 @@ import dagger.Module;
  *
  * @author andre.moreira
  */
-@Module(library = true, complete = false)
+@Module
 public class CoreModule {
 }

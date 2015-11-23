@@ -4,8 +4,11 @@ import android.app.Application;
 
 import org.androidannotations.annotations.EApplication;
 
+import javax.inject.Singleton;
+
+import br.com.android.material.app.activities.DaggerActivity;
 import br.com.android.material.app.modules.AppModule;
-import dagger.ObjectGraph;
+import dagger.Component;
 
 /**
  * Aplicação
@@ -15,19 +18,26 @@ import dagger.ObjectGraph;
 @EApplication
 public class DefaultApplication extends Application {
 
-    private ObjectGraph objectGraph;
+    private ApplicationComponent component;
+
+    @Singleton
+    @Component(modules = AppModule.class)
+    public interface ApplicationComponent {
+        void inject(DefaultApplication application);
+        void inject(DaggerActivity daggerActivity);
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        objectGraph = ObjectGraph.create(new AppModule(this));
+        component = DaggerDefaultApplication_ApplicationComponent.builder()
+                .appModule(new AppModule(this))
+                .build();
+        component().inject(this); // As of now, LocationManager should be injected into this.
     }
 
-    /**
-     * @return ObjectGraph para injeção de dependências
-     */
-    public ObjectGraph getObjectGraph() {
-        return objectGraph;
+    public ApplicationComponent component() {
+        return component;
     }
 }

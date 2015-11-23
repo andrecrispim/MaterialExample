@@ -24,6 +24,6 @@ public abstract class DaggerActivity extends Activity {
      */
     @AfterInject
     protected void daggerInitialize() {
-        application.getObjectGraph().inject(this);
+        ((DefaultApplication) getApplication()).component().inject(this);
     }
 }
