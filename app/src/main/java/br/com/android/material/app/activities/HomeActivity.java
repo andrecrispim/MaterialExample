@@ -1,6 +1,7 @@
 package br.com.android.material.app.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -28,8 +29,11 @@ import br.com.android.material.app.fragments.ThirdFragment;
 @EActivity(R.layout.activity_home)
 public class HomeActivity extends DaggerActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    @ViewById(R.id.toolbar)
+    @ViewById(R.id.home_toolbar)
     protected Toolbar toolbar;
+
+    @ViewById(R.id.home_collapsingToolbar)
+    protected CollapsingToolbarLayout collapsingToolbar;
 
     @ViewById(R.id.home_layout)
     protected DrawerLayout drawer;
@@ -42,6 +46,7 @@ public class HomeActivity extends DaggerActivity implements NavigationView.OnNav
     @AfterViews
     protected void initialize() {
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         drawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open, R.string.close) {
             @Override
@@ -89,7 +94,7 @@ public class HomeActivity extends DaggerActivity implements NavigationView.OnNav
             transaction.commit();
 
             item.setChecked(true);
-            setTitle(item.getTitle());
+            collapsingToolbar.setTitle(item.getTitle());
             drawer.closeDrawers();
 
             return true;
