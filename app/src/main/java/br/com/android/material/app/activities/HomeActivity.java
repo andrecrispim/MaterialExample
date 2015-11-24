@@ -17,9 +17,9 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import br.com.android.material.R;
-import br.com.android.material.app.fragments.HomeFragment;
-import br.com.android.material.app.fragments.SecondFragment;
-import br.com.android.material.app.fragments.ThirdFragment;
+import br.com.android.material.app.fragments.HomeFragment_;
+import br.com.android.material.app.fragments.SecondFragment_;
+import br.com.android.material.app.fragments.ThirdFragment_;
 
 /**
  * Tela principal da aplicação
@@ -77,13 +77,13 @@ public class HomeActivity extends DaggerActivity implements NavigationView.OnNav
 
         switch (item.getItemId()) {
             case R.id.navigationMenu_home:
-                fragment = new HomeFragment();
+                fragment = HomeFragment_.builder().build();
                 break;
             case R.id.navigationMenu_configuration:
-                fragment =  new SecondFragment();
+                fragment = SecondFragment_.builder().build();
                 break;
             case R.id.navigationMenu_help:
-                fragment =  new ThirdFragment();
+                fragment = ThirdFragment_.builder().build();
                 break;
         }
 
