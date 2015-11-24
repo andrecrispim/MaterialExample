@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:id="@+id/navigationMenu_mainGroup" android:checkableBehavior="single">
+    <group
+        android:id="@+id/navigationMenu_mainGroup"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/navigationMenu_home"
-            android:title="@string/home" />
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/home"/>
     </group>
 
-    <group android:id="@+id/navigationMenu_configurationGroup" android:checkableBehavior="single">
+    <group
+        android:id="@+id/navigationMenu_configurationGroup"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/navigationMenu_configuration"
-            android:title="@string/configurations" />
+            android:icon="@drawable/ic_menu_preferences"
+            android:title="@string/configurations"/>
         <item
             android:id="@+id/navigationMenu_help"
-            android:title="@string/help" />
+            android:icon="@drawable/ic_menu_help"
+            android:title="@string/help"/>
     </group>
 </menu>
