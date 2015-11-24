@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Android Material Example</string>
-    <string name="home">Home</string>
-    <string name="wait">Wait…</string>
+    <string name="home">Página inicial</string>
+    <string name="wait">Aguarde…</string>
+
+    <string name="open">Abrir</string>
+    <string name="close">Fechar</string>
+    <string name="configurations">Configurações</string>
+    <string name="help">Ajuda</string>
 </resources>

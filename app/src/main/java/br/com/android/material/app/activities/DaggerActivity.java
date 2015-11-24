@@ -1,6 +1,6 @@
 package br.com.android.material.app.activities;
 
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.App;
@@ -14,7 +14,7 @@ import br.com.android.material.app.DefaultApplication;
  * @author andre.moreira
  */
 @EActivity
-public abstract class DaggerActivity extends Activity {
+public abstract class DaggerActivity extends AppCompatActivity {
 
     @App
     protected DefaultApplication application;
