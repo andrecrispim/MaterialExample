@@ -15,6 +15,7 @@ import br.com.android.material.R;
 public class SplashScreenActivity extends DaggerActivity {
 
     /**
+     * 
      * Inicializa
      *
      * Seria utilizado para buscar dados que devem estar disponíveis ao iniciar a
