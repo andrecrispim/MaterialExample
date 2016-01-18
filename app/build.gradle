@@ -27,6 +27,7 @@ android {
 def supportLibraryVersion = '23.1.1'
 def androidAnnotationVersion = '3.3.2'
 def daggerVersion = '2.0.2'
+def picassoVersion = '2.5.2';
 
 dependencies {
     apt "com.google.dagger:dagger-compiler:$daggerVersion"
@@ -39,6 +40,7 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
     compile "com.google.dagger:dagger:$daggerVersion"
     compile "org.androidannotations:androidannotations-api:$androidAnnotationVersion"
+    compile "com.squareup.picasso:picasso:$picassoVersion"
 }
 
 apt {

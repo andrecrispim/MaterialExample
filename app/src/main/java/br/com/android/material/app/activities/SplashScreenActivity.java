@@ -15,7 +15,7 @@ import br.com.android.material.R;
 public class SplashScreenActivity extends DaggerActivity {
 
     /**
-     * 
+     *
      * Inicializa
      *
      * Seria utilizado para buscar dados que devem estar disponíveis ao iniciar a
@@ -24,8 +24,9 @@ public class SplashScreenActivity extends DaggerActivity {
     @AfterViews
     @Background(delay = 2000)
     protected void initialize() {
-        // Atenção: o delay é apenas par exemplifcar, se não tem nada para busca deveria ir direto
+        // Atenção: o delay é apenas par exemplificar, se não tem nada para buscar deveria ir direto
         // para a Home
         HomeActivity_.intent(this).start();
+        finish();
     }
 }
