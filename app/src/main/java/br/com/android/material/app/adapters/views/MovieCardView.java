@@ -12,6 +12,7 @@ import org.androidannotations.annotations.ViewById;
 
 import br.com.android.material.R;
 import br.com.android.material.core.model.Movie;
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 @EViewGroup(R.layout.movie_card)
 public class MovieCardView extends CardView {
@@ -25,6 +26,9 @@ public class MovieCardView extends CardView {
 
     public void bind(@NonNull Movie movie) {
         String uri = "file:///android_asset/" + movie.getImage();
-        Picasso.with(super.getContext()).load(uri).into(imageView);
+        Picasso.with(super.getContext()).load(uri)
+                .transform(new RoundedCornersTransformation(10, 0))
+                .resize(800, 800)
+                .into(imageView);
     }
 }

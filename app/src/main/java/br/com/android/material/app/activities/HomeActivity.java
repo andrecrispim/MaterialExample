@@ -68,23 +68,33 @@ public class HomeActivity extends DaggerActivity implements NavigationView.OnNav
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
+        if (savedInstanceState == null) {
+            onNavigationItemSelected(null);
+        }
+
         drawerToggle.syncState();
     }
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         Fragment fragment = null;
+        MenuItem currentItem = item;
 
-        switch (item.getItemId()) {
-            case R.id.navigationMenu_home:
-                fragment = HomeFragment_.builder().build();
-                break;
-            case R.id.navigationMenu_configuration:
-                fragment = SecondFragment_.builder().build();
-                break;
-            case R.id.navigationMenu_help:
-                fragment = ThirdFragment_.builder().build();
-                break;
+        if (item == null) {
+            fragment = HomeFragment_.builder().build();
+            currentItem = navigationView.getMenu().getItem(0);
+        } else {
+            switch (item.getItemId()) {
+                case R.id.navigationMenu_home:
+                    fragment = HomeFragment_.builder().build();
+                    break;
+                case R.id.navigationMenu_configuration:
+                    fragment = SecondFragment_.builder().build();
+                    break;
+                case R.id.navigationMenu_help:
+                    fragment = ThirdFragment_.builder().build();
+                    break;
+            }
         }
 
         if (fragment != null) {
@@ -93,9 +103,12 @@ public class HomeActivity extends DaggerActivity implements NavigationView.OnNav
             transaction.replace(R.id.home_content, fragment);
             transaction.commit();
 
-            item.setChecked(true);
-            collapsingToolbar.setTitle(item.getTitle());
+            if (collapsingToolbar != null) {
+                collapsingToolbar.setTitle(currentItem.getTitle());
+            }
+
             drawer.closeDrawers();
+            currentItem.setChecked(true);
 
             return true;
         }
