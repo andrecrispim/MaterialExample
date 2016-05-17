@@ -1,8 +1,7 @@
 package br.com.android.material.app.fragments;
 
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.widget.GridView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
@@ -13,88 +12,68 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.android.material.R;
-import br.com.android.material.app.adapters.MovieCardAdapter;
-import br.com.android.material.core.model.Movie;
+import br.com.android.material.app.adapters.AlbumTileAdapter;
+import br.com.android.material.core.model.Album;
 
-@EFragment(R.layout.fragment_movies)
+@EFragment(R.layout.fragment_albums)
 public class HomeFragment extends Fragment {
 
-    @ViewById(R.id.movies_cards)
-    protected RecyclerView recyclerView;
+    @ViewById(R.id.album_grid)
+    protected GridView gridView;
 
     @Bean
-    protected MovieCardAdapter adapter;
+    protected AlbumTileAdapter adapter;
 
     @AfterViews
     protected void initialize() {
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        recyclerView.setLayoutManager(layoutManager);
-
+        gridView.setAdapter(adapter);
         update();
     }
 
     private void update() {
-        List<Movie> movies = new ArrayList<>();
+        List<Album> movies = new ArrayList<>();
 
-        Movie movie = new Movie();
-        movie.setImage("avengers.jpg");
-        movie.setName("Avengers");
-        movies.add(movie);
+        Album album = new Album();
+        album.setImage("bornthisway.jpg");
+        album.setName("Born This Way");
+        album.setArtist("Lady Gaga");
+        movies.add(album);
 
-        movie = new Movie();
-        movie.setImage("hitman.jpg");
-        movie.setName("Hitman");
-        movies.add(movie);
+        album = new Album();
+        album.setImage("adele21.jpg");
+        album.setName("Adele 21");
+        album.setArtist("Adele");
+        movies.add(album);
 
-        movie = new Movie();
-        movie.setImage("iron_man_3.jpg");
-        movie.setName("Iron Man 3");
-        movies.add(movie);
+        album = new Album();
+        album.setImage("motorhead.jpg");
+        album.setName("Motorhead");
+        album.setArtist("Motorhead");
+        movies.add(album);
 
-        movie = new Movie();
-        movie.setImage("jurassic_world.jpg");
-        movie.setName("Jurassic World");
-        movies.add(movie);
+        album = new Album();
+        album.setImage("nevermind.jpg");
+        album.setName("Nevermind");
+        album.setArtist("Nirvana");
+        movies.add(album);
 
-        movie = new Movie();
-        movie.setImage("looper.jpg");
-        movie.setName("Looper");
-        movies.add(movie);
+        album = new Album();
+        album.setImage("ramones.jpg");
+        album.setName("Ramones");
+        album.setArtist("Ramones");
+        movies.add(album);
 
-        movie = new Movie();
-        movie.setImage("pacific_rim.jpg");
-        movie.setName("Pacific Rim");
-        movies.add(movie);
+        album = new Album();
+        album.setImage("thebookofsouls.jpg");
+        album.setName("The Book of Souls");
+        album.setArtist("Iron Maiden");
+        movies.add(album);
 
-        movie = new Movie();
-        movie.setImage("skyfall_007.jpg");
-        movie.setName("Skyfall");
-        movies.add(movie);
-
-        movie = new Movie();
-        movie.setImage("spectre_007.jpg");
-        movie.setName("Spectre");
-        movies.add(movie);
-
-        movie = new Movie();
-        movie.setImage("star_wars.jpg");
-        movie.setName("Star Wars - The Force Awakens");
-        movies.add(movie);
-
-        movie = new Movie();
-        movie.setImage("the_fantastic_four.jpg");
-        movie.setName("The Fantastic Four");
-        movies.add(movie);
-
-        movie = new Movie();
-        movie.setImage("the_martian.jpg");
-        movie.setName("The Martian");
-        movies.add(movie);
+        album = new Album();
+        album.setImage("thesmiths.jpg");
+        album.setName("The Smiths");
+        album.setArtist("The Smiths");
+        movies.add(album);
 
         adapter.setItems(movies);
     }
