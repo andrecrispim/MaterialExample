@@ -67,7 +67,7 @@ public class AlbumTileView extends LinearLayout {
             }
 
             if (swatch == null) {
-                swatch = palette.getDarkMutedSwatch();
+                swatch = palette.getMutedSwatch();
             }
 
             if (swatch != null) {

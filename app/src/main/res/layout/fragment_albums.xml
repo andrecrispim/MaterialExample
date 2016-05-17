@@ -4,10 +4,10 @@
           xmlns:android="http://schemas.android.com/apk/res/android"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:columnWidth="157dp"
+          android:columnWidth="158dp"
           android:numColumns="auto_fit"
-          android:verticalSpacing="5dp"
-          android:horizontalSpacing="5dp"
+          android:verticalSpacing="4dp"
+          android:horizontalSpacing="4dp"
           android:stretchMode="columnWidth"
           android:background="#000000"
           android:gravity="center">
